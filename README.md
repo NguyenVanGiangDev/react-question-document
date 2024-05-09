@@ -30,5 +30,11 @@ Câu 3: Virtual DOM là gì?
    Để giải quyết vấn đề này, React sử dụng cơ chế gọi là Virtual DOM. Virtual DOM là một bản sao của cây DOM được lưu trữ trong bộ nhớ trình duyệt. Khi có sự thay đổi trong dữ liệu hoặc trạng thái của ứng dụng. React sẽ tạo ra một Virtual DOM mới, so sánh với Virtual DOM trước đó và xác định các thay đổi cần được áp dụng vào DOM thực sự.
    Quá trình này giúp giảm thiểu số lần cập nhật trực tiếp lên DOM, thay vào đó chỉ cập nhật các phần tử thực sự cần thiết. Kết quả là tăng hiệu suất và tăng trải nghiệm người dùng.
    Tóm lại. Virtual DOM trong React là một kỹ thuật tối ưu hóa hiệu suất bằng cách sử dụng một bản sao của cấy DOM trong bộ nhớ để giảm thiểu số lần cập nhật trực tiếp lên DOM thực sự.
+
+Câu 4: Single Page Application là gì?
+  + Single Page Application (SPA) là một loại ứng dụng web mà các trang không được tại lại hoàn toàn khi người dùng thực hiện các tương tác, như là chuyển đổi giữa các trang hoặc thực hiện các hành động khác. Thay vào đó, toàn bộ hoặc một phần của nội dung của trang được tải bằng Javascript khi cần thiết, thường thông qua AJAX, và sau đó được hiển thị trên cùng 1 trang.
+    Điều này có nghĩa là khi người dùng điều hướng giữa các thành phần của ứng dụng, trình duyệt không cần phải tải lại trang hoặc yêu cầu tải trang từ máy chủ. Thay vào đó, các thay đổi được thực hiện mà không làm gián đoạn trải nghiệm người dùng, tạo ra cảm giác mượt và  nhanh  chóng.
+    Các ứng dụng Single Page Application thường sử dụng các framework Javascript như React, Angular, Vue.js để quản lý việc tải và hiển thị các nội dung, cũng như quản lý trạng thái của ứng dụng. Các công nghệ như Routing và State Management cũng được sử dụng để điều hướng giữa các "Trang ảo" và quản lý dữ liệu ứng dụng.
+    Một số ưu điểm của SPA bao gồm trải nghiệm người dùng tốt hơn, tăng tốc độ tải trang và giảm tải cho máy chủ vì không phải load lại toàn bộ trang. Tuy nhiên, cũng có nhược điểm như việc quản lý bộ nhớ và SEO khó khăn hơn do một số công cụ tìm kiếm không thích ứng với việc index các ứng dung dựa trên Javascript.
    
    
