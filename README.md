@@ -10,4 +10,25 @@ Câu 1: Reactjs là gì? Hoạt động như nào?
   1. Components: ReactJs xây dựng giao diện người dùng thông qua các compenents, mỗi component đại diện cho một phần của UI và có thể tái sử dụng.
   2. JSX: JSX là cú pháp mở rộng của Javascript giúp viết markup trong Javascript dễ dàng hơn. JSX cho phép bạn viết HTML trong code Javascript.
   3. Virtual DOM: Thay vì thay đổi trực tiếp DOM của trình duyệt, ReactJS sử dụng Virtual DOM để tối ưu hiệu suất. Khi state và props của component thay đổi. ReactJS sẻ tạo ra một Virtual DOM mới và so sánh nó với Virtual DOM trước đó để xác định những thay đổi cần thiết và chỉ tập trung những phần đó trên DOM thực.
-  4. Data Flow: ReactJS sử dụng một chiều dữ liệu (one-way data flow), nghĩa là dữ liệu được truyền từ component cha xuống component con thông qua props. 
+  4. Data Flow: ReactJS sử dụng một chiều dữ liệu (one-way data flow), nghĩa là dữ liệu được truyền từ component cha xuống component con thông qua props.
+ 
+Câu 2: Ưu và nhược điểm của ReactJS?
+ + Ưu điểm:
+   1. Hiệu suất cao: ReactJS sử dụng Virtual DOM để tối ưu hóa hiệu suất của ứng dụng. Thay thì cập nhật toàn bộ DOM. ReactJS chỉ cập nhật những DOM thực sự cần thiết, giúp giảm tải cho trình duyệt và tăng tốc độ của ứng dụng.
+   2. Component-Based: ReactJS sử dụng cấu trúc phát triển dựa trên thành phần, giúp việc phát triển và bảo trì ứng dụng dễ dàng hơn bằng cách tách biệt các phần của ứng dụng thành các thành phần độc lập.
+   3. JSX: JSX là một cú phát giúp viết HTML trong Javascript. Điều này giúp làm cho mã nguồn dễ đọc hơn, dễ hiểu hơn, dễ bảo trì hơn.
+   4. Hỗ trợ tốt cho SEO: React có khả năng render trên server (Server-Side Rendering - SSR), giúp cho các ứng dụng React có thể tối ưu hóa cho việc tìm kiếm trên các công cụ tìm kiếm.
+ + Nhược điểm:
+   1. Học ngưỡng ban đầu: Dù ReactJS là một cú pháp gần gũi và dễ hiểu, nhưng nó vẫn đòi hỏi một thời gian đầu để hiểu rõ về khái niêm JSX, Virtual DOM, State, Props...
+   2. Quản lý trạng thái: React không đi kèm với một giải pháp quản lý trạng thái nào mặc định. Điều này có thể làm cho việc quản lý trạng thái của ứng dụng phức tạp hơn khi không có một hướng dẫn rõ ràng.
+   3. Thư viện hơn là Framework: ReactJS chỉ là một thư viện và không cung cấp một cấu trúc hoàn chỉnh như một framework. Điều này có thể làm cho việc quyết định về cấu trúc dự án và các thư viện phụ trợ phức tạp hơn.
+   4. Có thể phức tạp với ứng dụng lớn: Dù ReactJS có thể được sử dụng để xây dựng ứng dụng lớn, nhưng không có một cách tiếp cận chuẩn để quản lý ứng dụng khi chúng trở nên lớn và phức tạp.
+
+Câu 3: Virtual DOM là gì?
+ + Virtual DOM (DOM ảo) là một biến thể của cây DOM, được sử dụng trong React và một số thư viện Javascript khác để tối ưu hóa hiệu xuất khi cập nhật giao diện người dùng trên website. 
+   Ở mức cơ bản, DOM là cách trình duyệt biểu diễn và tương tác với phần tử HTMl của một trang web. Mỗi khi có sự thay đổi trong dữ liệu hoặc trạng thái của ứng dụng web, DOM phải cập nhật để phản ánh các thay đổi đó. Tuy nhiên, việc cập nhật trực tiếp trên DOM có thể làm chậm hiệu suất của ứng dụng, đặc biệt đối với các ứng dụng web lớn và phức tạp.
+   Để giải quyết vấn đề này, React sử dụng cơ chế gọi là Virtual DOM. Virtual DOM là một bản sao của cây DOM được lưu trữ trong bộ nhớ trình duyệt. Khi có sự thay đổi trong dữ liệu hoặc trạng thái của ứng dụng. React sẽ tạo ra một Virtual DOM mới, so sánh với Virtual DOM trước đó và xác định các thay đổi cần được áp dụng vào DOM thực sự.
+   Quá trình này giúp giảm thiểu số lần cập nhật trực tiếp lên DOM, thay vào đó chỉ cập nhật các phần tử thực sự cần thiết. Kết quả là tăng hiệu suất và tăng trải nghiệm người dùng.
+   Tóm lại. Virtual DOM trong React là một kỹ thuật tối ưu hóa hiệu suất bằng cách sử dụng một bản sao của cấy DOM trong bộ nhớ để giảm thiểu số lần cập nhật trực tiếp lên DOM thực sự.
+   
+   
