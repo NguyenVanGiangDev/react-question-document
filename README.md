@@ -36,5 +36,21 @@ Câu 4: Single Page Application là gì?
     Điều này có nghĩa là khi người dùng điều hướng giữa các thành phần của ứng dụng, trình duyệt không cần phải tải lại trang hoặc yêu cầu tải trang từ máy chủ. Thay vào đó, các thay đổi được thực hiện mà không làm gián đoạn trải nghiệm người dùng, tạo ra cảm giác mượt và  nhanh  chóng.
     Các ứng dụng Single Page Application thường sử dụng các framework Javascript như React, Angular, Vue.js để quản lý việc tải và hiển thị các nội dung, cũng như quản lý trạng thái của ứng dụng. Các công nghệ như Routing và State Management cũng được sử dụng để điều hướng giữa các "Trang ảo" và quản lý dữ liệu ứng dụng.
     Một số ưu điểm của SPA bao gồm trải nghiệm người dùng tốt hơn, tăng tốc độ tải trang và giảm tải cho máy chủ vì không phải load lại toàn bộ trang. Tuy nhiên, cũng có nhược điểm như việc quản lý bộ nhớ và SEO khó khăn hơn do một số công cụ tìm kiếm không thích ứng với việc index các ứng dung dựa trên Javascript.
+
+Câu 5: Sự khác nhau giữa Class Component và Function Component? Bạn đang sử dụng dạng nào và tại sao?
+ + Cú pháp:
+   1. Class Component được định nghĩa bằng cách tạo một lớp Javascript, thường là một subclass của "React.Component".
+   2. Function components là các hàm Javascript thông thường trả về JSX.
+ + Quản lý trạng thái:
+   1. Trong class component bạn có thể sử dụng `this.state` để lưu trữ và quản lý trạng thái của component.
+   2. Function component không có trạng thái nội bộ, nhưng bạn có thể sử dụng React Hooks như `useState` để thêm trạng thái cho function component
+ + Lifecycle mothods:
+   1. Class component có thể sử dụng lifecycle method thư `componentDismount1, `componentDidUpdate`, và `componentWillUmount` để thực hiện các hành động nhất định trong vòng đời của component.
+   2. Function component có thể sử dụng useEffect hook để thực hiện các vụ tương tự như lifecycle methods.
+ + Tính linh hoạt và đơn giản:
+   1. Function component thường được coi là đơn giản hơn và dễ đọc hơn so với class component. Việc sử dụng hooks trong function component giúp tạo ra code ngắn gọn và dễ hiểu hơn.
+ + Tổng kết: Mình đang sử dụng function component vì triển khai code ngắn gọn và dễ hiểu hơn.
+
+Câu 6: Hãy trình bày những giai đoạn có trong lifeCycle của 1 component?
    
    
