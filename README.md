@@ -59,7 +59,7 @@ Câu 6: Hãy trình bày những giai đoạn có trong lifeCycle của 1 compon
     + Trong giai đoạn này component được thêm và DOM và cây UI, làm cho nó trở nên hiển thị và có thể tương tác bởi người dùng. Các sự kiện các hàm lắng nghe sự kiện có thể được kích hoạt ở đây.
  3. Cập nhật (Updating):
     + Trong giai đoạn này component có thể cần cập nhật do thay đổi trạng thái hoặc props. React ví dụ sẽ gọi `render()` sau mỗi lần props hoặc state thay đổi. Các lifeCycle methods như `componentDidUpdate()` có thể được gọi trong giai đoạn này.
- 4. Mở (Unmounting):
+ 4. Hủy bỏ (Unmounting):
     + Khi component không được sử dụng nữa, ví dụ nó bị gỡ bỏ khỏi DOM hoặc cây UI, tài nguyên được giải phóng và các lắng nghe sự kiện được loại bỏ. Trong React `conponentWillUmount` là một ví dụ về một lifeCycle mothed được gọi trong đoạn này
 
 Câu 7: Một componet có thể được "Rerender" lại khi nào?
