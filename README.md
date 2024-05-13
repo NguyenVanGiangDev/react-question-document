@@ -63,10 +63,20 @@ Câu 6: Hãy trình bày những giai đoạn có trong lifeCycle của 1 compon
     + Khi component không được sử dụng nữa, ví dụ nó bị gỡ bỏ khỏi DOM hoặc cây UI, tài nguyên được giải phóng và các lắng nghe sự kiện được loại bỏ. Trong React `conponentWillUmount` là một ví dụ về một lifeCycle mothed được gọi trong đoạn này
 
 Câu 7: Một componet có thể được "Rerender" lại khi nào?
+ Một component có thể được rerender trong các trường hợp sau:
+ 1. Thay đổi Props: Nếu các props được truyền vào component thay đổi, React sẽ rerender component để áp dụng các thay đổi mới. Điều này đặc biệt quan trọng khi Props được sử dụng để tính toán trạng thái hoặc nội dung của component.
+ 2. Thay đổi State: Khi trạng thái của component thay đổi bằng cách gọi `setState()` hoặc một hàm tương tự, component sẽ rerender để cập nhật giao diện người dùng theo trạng thái mới.
+ 3. Kích hoạt từ cha: Nếu commponent được nhận từ props mới từ component cha, hoặc nếu component cha tự rerender, component con sẽ rereder để cập nhật dữ liệu mới
+ 4. Thay đổi trong context: Nếu component sử dụng context và giá trị trong context thay đổi, component sẽ rerender để áp dụng các giá trị mới từ context.
+ 5. Gọi hàm `forceUpdate()`: Trong một số trường hợp bạn có thể gọi `forceUpdate()` trên một component để buộc nó rerender mặc dù không có sự thay đổi props hoặc state. Tuy nhiên điều này không được khuyến khích và nên tránh sử dụng nếu có thể,  vì nó có thể sẽ gây ra hiệu suất không hiệu quả và làm mất đi sự tối ưu tự nhiên của React.
 
-Một component có thể được rerender trong các trường hợp sau:
-1. Thay đổi Props: Nếu các props được truyền vào component thay đổi, React sẽ rerender component để áp dụng các thay đổi mới. Điều này đặc biệt quan trọng khi Props được sử dụng để tính toán trạng thái hoặc nội dung của component.
-2. Thay đổi State: Khi trạng thái của component thay đổi bằng cách gọi `setState()` hoặc một hàm tương tự, component sẽ rerender để cập nhật giao diện người dùng theo trạng thái mới.
-3. Kích hoạt từ cha: Nếu commponent được nhận từ props mới từ 
-   
+Câu 8: JSX là gì? Browser có thể đọc được JSX hay không?
+ + JSX là một phần mở rộng của Javascript được sử dụng phổ biến trong React để viết các đoạn mã có cấu trúc gần giống HTML để xây dựng giao diện người dùng. JSX cho phép bạn kết hợp với HTML với Javascript, giúp tạo ra mã ngắn gọn, dễ đọc dễ hiểu hơn so với việc sử dụng các phương thức Javascript truyền thống để tạo ra các thành phần giao diện
+ + Browser không thể hiểu trực tiếp JSX, JSX phải được biên dịch thành Javascript thông thường trước khi nó được hiểu bởi trình duyệt. Điều này thường được thực hiện bằng cách sử dụng các công cụ như Babel trong quá trình phát triển ứng dụng React. Babel sẽ biên dịch JSX thành mã Javascript tương ứng trước khi ứng dụng được triển khai lên môi trường sản xuất hoặc khi chạy trên trình duyệt.
+
+Câu 9: Stateless component và statefull component khác nhau thế nào?
+
+Câu 10: 
+
+ 
    
