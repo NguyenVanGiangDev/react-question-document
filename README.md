@@ -52,5 +52,21 @@ Câu 5: Sự khác nhau giữa Class Component và Function Component? Bạn đa
  + Tổng kết: Mình đang sử dụng function component vì triển khai code ngắn gọn và dễ hiểu hơn.
 
 Câu 6: Hãy trình bày những giai đoạn có trong lifeCycle của 1 component?
+ + LifeCycle của một component trong lập trình phần mềm thường bao gồm các giai đoạn sau:
+ 1. Khởi tạo (Initialization):
+    + Trong giai đoạn này component được khởi tạo. Các biến địa phương được khai báo và cài đặt, các tài nguyên cần thiết được cấp phát, và các trạng thái ban đầu được thiết lập. Điều này thường xảy ra khi một instance mới của component được tạo.
+ 2. Hiển thị (Mounting):
+    + Trong giai đoạn này component được thêm và DOM và cây UI, làm cho nó trở nên hiển thị và có thể tương tác bởi người dùng. Các sự kiện các hàm lắng nghe sự kiện có thể được kích hoạt ở đây.
+ 3. Cập nhật (Updating):
+    + Trong giai đoạn này component có thể cần cập nhật do thay đổi trạng thái hoặc props. React ví dụ sẽ gọi `render()` sau mỗi lần props hoặc state thay đổi. Các lifeCycle methods như `componentDidUpdate()` có thể được gọi trong giai đoạn này.
+ 4. Mở (Unmounting):
+    + Khi component không được sử dụng nữa, ví dụ nó bị gỡ bỏ khỏi DOM hoặc cây UI, tài nguyên được giải phóng và các lắng nghe sự kiện được loại bỏ. Trong React `conponentWillUmount` là một ví dụ về một lifeCycle mothed được gọi trong đoạn này
+
+Câu 7: Một componet có thể được "Rerender" lại khi nào?
+
+Một component có thể được rerender trong các trường hợp sau:
+1. Thay đổi Props: Nếu các props được truyền vào component thay đổi, React sẽ rerender component để áp dụng các thay đổi mới. Điều này đặc biệt quan trọng khi Props được sử dụng để tính toán trạng thái hoặc nội dung của component.
+2. Thay đổi State: Khi trạng thái của component thay đổi bằng cách gọi `setState()` hoặc một hàm tương tự, component sẽ rerender để cập nhật giao diện người dùng theo trạng thái mới.
+3. Kích hoạt từ cha: Nếu commponent được nhận từ props mới từ 
    
    
