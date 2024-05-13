@@ -45,7 +45,7 @@ Câu 5: Sự khác nhau giữa Class Component và Function Component? Bạn đa
    1. Trong class component bạn có thể sử dụng `this.state` để lưu trữ và quản lý trạng thái của component.
    2. Function component không có trạng thái nội bộ, nhưng bạn có thể sử dụng React Hooks như `useState` để thêm trạng thái cho function component
  + Lifecycle mothods:
-   1. Class component có thể sử dụng lifecycle method thư `componentDismount1, `componentDidUpdate`, và `componentWillUmount` để thực hiện các hành động nhất định trong vòng đời của component.
+   1. Class component có thể sử dụng lifecycle method thư `componentDismount1`, `componentDidUpdate`, và `componentWillUmount` để thực hiện các hành động nhất định trong vòng đời của component.
    2. Function component có thể sử dụng useEffect hook để thực hiện các vụ tương tự như lifecycle methods.
  + Tính linh hoạt và đơn giản:
    1. Function component thường được coi là đơn giản hơn và dễ đọc hơn so với class component. Việc sử dụng hooks trong function component giúp tạo ra code ngắn gọn và dễ hiểu hơn.
