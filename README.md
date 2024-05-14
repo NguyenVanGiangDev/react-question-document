@@ -97,7 +97,7 @@ Câu 9: Stateless component và statefull component khác nhau thế nào?
     2. Cú pháp:
        Thường được viết dưới dạng (class component) hoặc sử dụng hooks trong function component (Function component with hooks)
        
-       // Class component
+      // Class component
       ```
       class Greeting extends React.Component {
       constructor(props) {
@@ -144,6 +144,50 @@ Câu 10: Presentational component và container component khác nhau thế nào?
        - Thường là các component không trạng thái (stateless components), những cũng có thể là các stateful component nếu cần quản lý trạng thái liên quan đến giao diện.
        - Dễ kiểm tra vì chúng chỉ liên quan đến giao diện và dữ liệu đầu vào
     3. Ví dụ:
-    C
- 
+    ```
+    const Button = ({ label, onClick }) => {
+     return <button onClick={onClick}>{label}</button>;
+    };
+    ```
+ + Container Component (Conponent chứa)
+    1. Định nghĩa:
+       + Container component chịu trách nhiệm quản ý logic và trạng thái của ứng dụng. Chúng thường kết nối với các nguồn dữ liệu và quyết định dữ liệu nào sẽ được truyền xuống các presentional component
+    2. Đặc điểm:
+       + Quản lý trạng thái của ứng dụng hoặc kết nối với store (trong redux hoặc các state management khác).
+       + Xử lý các tác vụ logic như gọi API, xử lý sự kiện, và quản lý dữ liệu.
+       + Thường chứa các presentational components bên trong để render giao diện
+    4. Ví dụ:
+       ```
+          import React, { Component } from 'react';
+          import { connect } from 'react-redux';
+          import Button from './Button';
+          
+          class ButtonContainer extends Component {
+           handleClick = () => {
+           // Logic xử lý khi nút được nhấn
+           this.props.dispatch({ type: 'BUTTON_CLICKED' });
+           }
+           
+           render() {
+           return <Button label="Click me" onClick={this.handleClick} />;
+           }
+          }
+          
+          export default connect()(ButtonContainer);
+       ```
+ + Sự khác biệt chính
+    1. Trách nhiệm:
+       - Presentational Components: Tập trung vào việc hiển thị giao diện. Nhận dữ liệu và hành động từ props
+       - Container component: Tập trung vào logic và trạng thái của ứng dụng. Kết nối các nguồn dữ liệu và quản lý dữ liệu
+    2. Cách sử dụng:
+       - Presentational Component: Được sử dụng để tạo ra các phần tử giao diện đơn giản, tái sử dụng được
+       - Container Component: Được sử dụng để chứa và quản lý các presentational component, xử lý logic phức tạp và trạng thái
+      
+ + Lợi ích của việc phân chia
+   - Separation of concerns: Giúp tách biệt rõ ràng giữa giao diện và logic, làm cho mã nguồn dễ hiểu và dễ duy trì hơn
+   - Tái sử dụng: Presentational component có thể được tái sử dụng ở nhiều nơi trong ứng dụng vì chúng k bị ràng buộc với logic cụ thể.
+   - Dễ kiểm tra: Presentational Component dễ dàng kiểm tra hơn vì chúng chỉ phụ thuộc vào props và không chứa logic phức tạp.
+  
+  Kết luận: Sự phân chia giữa presentational và container component giúp tăng tính cấu trúc và khả năng bảo trì của mã nguồn. Presentational component tập trung vào việc hiển thị giao diện, trong khi container component quản lý logic và trạng thái của ứng dụng.
+         
    
