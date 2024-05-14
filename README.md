@@ -96,23 +96,23 @@ Câu 9: Stateless component và statefull component khác nhau thế nào?
        Thường được viết dưới dạng (class component) hoặc sử dụng hooks trong function component (Function component with hooks)
        
        // Class component
-      `class Greeting extends React.Component {
+      ```class Greeting extends React.Component {
       constructor(props) {
        super(props);
        this.state = { name: 'John' };
       }
       
       render() {
-       return <h1>Hello, {this.state.name}!</h1>;
+       return <p>Hello, {this.state.name}!</p>;
       }
-      }`
+      }```
     
       // Function component with hooks
       `import React, { useState } from 'react';
       
       const Greeting = () => {
       const [name, setName] = useState('John');
-      return <h1>Hello, {name}!</h1>;
+      return <p>Hello, {name}!</p>;
       };`
 
     3. Đặc điểm:
@@ -129,6 +129,15 @@ Câu 9: Stateless component và statefull component khác nhau thế nào?
     Với sự xuất hiện của hooks trong React, sự khác biệt giữa stateless và stateful component đã trở nên mờ nhạt hơn, vì giờ đây chúng ta có thể quản lý trạng thái trong Function component một cách dễ dàng, giúp cho code trở nên sạch và dễ quản lý hơn.
 
 Câu 10: Presentational component và container component khác nhau thế nào?
-
+  Trong lập trình React, khái niệm "Presentational component" (Component trình bày) và "Container component" (Component chứa) là một cách tiếp cận trong việc tổ chức và quản lý mã nguồn theo mô hình phân chia trách nhiệm rõ ràng. Đây là sự khác biệt chính giữa 2 loại component này. 
+  + Presentational Component (Component trình bày)
+    1. Địng nghĩa: Presentional component chủ yếu tập trung vào việc render giao diện người dùng. Chúng không chứa logic phức tạp không quản lý trạng thái của ứng dụng ( hoặc chỉ quản lý trạng thái liên quan đến giao diện)
+    2. Đặc điểm:
+       - Nhận dữ liệu và callback functions thông qua props
+       - Không có kết nối trực tiếp với store (trong trường hợp sử dụng Redux hoặc các state management khác)
+       - Thường là các component không trạng thái (stateless components), những cũng có thể là các stateful component nếu cần quản lý trạng thái liên quan đến giao diện.
+       - Dễ kiểm tra vì chúng chỉ liên quan đến giao diện và dữ liệu đầu vào
+    3. Ví dụ:
+    C
  
    
