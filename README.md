@@ -75,8 +75,60 @@ Câu 8: JSX là gì? Browser có thể đọc được JSX hay không?
  + Browser không thể hiểu trực tiếp JSX, JSX phải được biên dịch thành Javascript thông thường trước khi nó được hiểu bởi trình duyệt. Điều này thường được thực hiện bằng cách sử dụng các công cụ như Babel trong quá trình phát triển ứng dụng React. Babel sẽ biên dịch JSX thành mã Javascript tương ứng trước khi ứng dụng được triển khai lên môi trường sản xuất hoặc khi chạy trên trình duyệt.
 
 Câu 9: Stateless component và statefull component khác nhau thế nào?
+ Trong lập trình React sự khác biệt giữa "stateless component" (Component không trạng thái) và "stateful component" (Component có trạng thái) là một khía cạnh quan trọng trong việc hiểu và thiết kế các thành phần trong ứng dụng. Dưới đây là sự khác biệt chính giữa hai loại component này:
+ + Stateless Component (Component không trạng thái)
+   1. Định nghĩa: Stateless component là những component không quản lý bất kỳ trạng thái nào. Chúng chỉ nhận Props và Render giao diện theo props đó.
+   2. Cú pháp:
+       Thường được viết dưới dạng hàm (Function components)
+       `const Greeting = (props) => {
+          return <h1>Hello, {props.name}</h1>;
+      } `
+    3. Đặc điểm:
+       - Không có lifeCycle methods (như componentDidMount, componentDidUpdate)
+       - Đơn giản và dễ kiểm tra
+       - Hiệu suất tốt hơn trong một số trường hợp vì không cần quản lý trạng thái
+    4. Sử dụng:
+       - Thích hợp cho các thành phần trình bày đơn giản, nơi không cần quản lý trạng thái hoặc logic phức tạp.
+  + Stateful component (Component có trạng thái)
+    1. Định nghĩa:
+       Stateful component là những component có thể quản lý trạng thái nội bộ (state). Chúng có thể cập nhật và lưu trữ thông tin về trạng thái của chính mình.
+    2. Cú pháp:
+       Thường được viết dưới dạng (class component) hoặc sử dụng hooks trong function component (Function component with hooks)
+       
+       // Class component
+      `class Greeting extends React.Component {
+      constructor(props) {
+       super(props);
+       this.state = { name: 'John' };
+      }
+      
+      render() {
+       return <h1>Hello, {this.state.name}!</h1>;
+      }
+      }`
+    
+      // Function component with hooks
+      `import React, { useState } from 'react';
+      
+      const Greeting = () => {
+      const [name, setName] = useState('John');
+      return <h1>Hello, {name}!</h1>;
+      };`
 
-Câu 10: 
+    3. Đặc điểm:
+       - Có fifeCycle method ( Đối với class component )
+       - Có thể quản lý và cập nhật trạng thái nội bộ.
+       - Thường phức tạp hơn statless component do cần quản lý trạng thái và logic.
+    4. Sử dụng:
+       Thích hợp cho các thành phần yêu cầu quản lý trạng thái hoặc có logic phức tạp như form, giao diện người dùng.
+
+    Kết luận:
+      + Stateless component rất tốt cho các thành phần đơn giản và chỉ dựa vào dữ liệu props
+      + Stateful components phù hợp hơn khi cần quản lý trạng thái logic phức tạp trong component.
+   
+    Với sự xuất hiện của hooks trong React, sự khác biệt giữa stateless và stateful component đã trở nên mờ nhạt hơn, vì giờ đây chúng ta có thể quản lý trạng thái trong Function component một cách dễ dàng, giúp cho code trở nên sạch và dễ quản lý hơn.
+
+Câu 10: Presentational component và container component khác nhau thế nào?
 
  
    
