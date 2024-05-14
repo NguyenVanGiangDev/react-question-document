@@ -80,14 +80,16 @@ Câu 9: Stateless component và statefull component khác nhau thế nào?
    1. Định nghĩa: Stateless component là những component không quản lý bất kỳ trạng thái nào. Chúng chỉ nhận Props và Render giao diện theo props đó.
    2. Cú pháp:
        Thường được viết dưới dạng hàm (Function components)
-       `const Greeting = (props) => {
+      ```
+      const Greeting = (props) => {
           return <h1>Hello, {props.name}</h1>;
-      } `
-    3. Đặc điểm:
+      }
+      ```
+    4. Đặc điểm:
        - Không có lifeCycle methods (như componentDidMount, componentDidUpdate)
        - Đơn giản và dễ kiểm tra
        - Hiệu suất tốt hơn trong một số trường hợp vì không cần quản lý trạng thái
-    4. Sử dụng:
+    5. Sử dụng:
        - Thích hợp cho các thành phần trình bày đơn giản, nơi không cần quản lý trạng thái hoặc logic phức tạp.
   + Stateful component (Component có trạng thái)
     1. Định nghĩa:
@@ -96,7 +98,8 @@ Câu 9: Stateless component và statefull component khác nhau thế nào?
        Thường được viết dưới dạng (class component) hoặc sử dụng hooks trong function component (Function component with hooks)
        
        // Class component
-      ```class Greeting extends React.Component {
+      ```
+      class Greeting extends React.Component {
       constructor(props) {
        super(props);
        this.state = { name: 'John' };
@@ -105,15 +108,18 @@ Câu 9: Stateless component và statefull component khác nhau thế nào?
       render() {
        return <p>Hello, {this.state.name}!</p>;
       }
-      }```
+      }
+      ```
     
       // Function component with hooks
-      `import React, { useState } from 'react';
+      ```
+      import React, { useState } from 'react';
       
       const Greeting = () => {
       const [name, setName] = useState('John');
       return <p>Hello, {name}!</p>;
-      };`
+      };
+      ```
 
     3. Đặc điểm:
        - Có fifeCycle method ( Đối với class component )
