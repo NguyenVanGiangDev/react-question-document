@@ -189,5 +189,12 @@ Câu 10: Presentational component và container component khác nhau thế nào?
    - Dễ kiểm tra: Presentational Component dễ dàng kiểm tra hơn vì chúng chỉ phụ thuộc vào props và không chứa logic phức tạp.
   
   Kết luận: Sự phân chia giữa presentational và container component giúp tăng tính cấu trúc và khả năng bảo trì của mã nguồn. Presentational component tập trung vào việc hiển thị giao diện, trong khi container component quản lý logic và trạng thái của ứng dụng.
+
+  Câu 11: Controller component và uncontrolled component khác nhau thế nào?
+   Trong React khái niệm controller component ( Thành phần điều khiển ) và uncontrolled component ( Thành phần không điều khiển ) mô tả cách thức quản lý trạng thái của các thành phần đầu vào trong giao diên người dùng. DƯới đây là sự khác biệt giữa chúng.
+   + Controller Component (Thành phần điều khiển)
+     - Quản lý trạng thái bằng state: Thành phần điều khiển quản lý giá trị của các trường đầu vào thông qua trạng thái (state) của React. Giá trị của trường đầu và được lưu trữ trong state và cập nhật bằng cách sử dụng các sự kiện (event) như `onChange`.
+     - Liên kết giá trị và sự kiện: Để thành phần đầu vào ( như `<input>`, `<textarea>`, hoặc `<select>` ) trở thành một component, bạn cần liên kết thuốc tính value của nó với một state của React và sử dụng thuộc tính `onChange` để cập nhật state này khi người dùng thay đổi giá trị đầu vào.
+     - Dễ dàng kiểm soát và xác thực dữ liệu: Vì giá trị của các trường đầu vào được lưu trữ trong state, bạn có thể dễ dàng thực hiện các thao tác kiểm soát
          
    
