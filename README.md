@@ -195,6 +195,181 @@ Câu 10: Presentational component và container component khác nhau thế nào?
    + Controller Component (Thành phần điều khiển)
      - Quản lý trạng thái bằng state: Thành phần điều khiển quản lý giá trị của các trường đầu vào thông qua trạng thái (state) của React. Giá trị của trường đầu và được lưu trữ trong state và cập nhật bằng cách sử dụng các sự kiện (event) như `onChange`.
      - Liên kết giá trị và sự kiện: Để thành phần đầu vào ( như `<input>`, `<textarea>`, hoặc `<select>` ) trở thành một component, bạn cần liên kết thuốc tính value của nó với một state của React và sử dụng thuộc tính `onChange` để cập nhật state này khi người dùng thay đổi giá trị đầu vào.
-     - Dễ dàng kiểm soát và xác thực dữ liệu: Vì giá trị của các trường đầu vào được lưu trữ trong state, bạn có thể dễ dàng thực hiện các thao tác kiểm soát
+     - Dễ dàng kiểm soát và xác thực dữ liệu: Vì giá trị của các trường đầu vào được lưu trữ trong state, bạn có thể dễ dàng thực hiện các thao tác kiểm soát và xác thực dữ liệu trước khi cho phép người dùng gửi thông tin.
+     - Ví dụ:
+              ```
+                      class ControlledForm extends React.Component {
+                        constructor(props) {
+                          super(props);
+                          this.state = { value: '' };
+                      
+                          this.handleChange = this.handleChange.bind(this);
+                          this.handleSubmit = this.handleSubmit.bind(this);
+                        }
+                      
+                        handleChange(event) {
+                          this.setState({ value: event.target.value });
+                        }
+                      
+                        handleSubmit(event) {
+                          alert('A name was submitted: ' + this.state.value);
+                          event.preventDefault();
+                        }
+                      
+                        render() {
+                          return (
+                            <form onSubmit={this.handleSubmit}>
+                              <label>
+                                Name:
+                                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                              </label>
+                              <input type="submit" value="Submit" />
+                            </form>
+                          );
+                        }
+                      }
+              ```
+
+ + Uncontrolled Component (Thành phần không điều khiển)
+   - Quản lý trạng thái bằng DOM: Thành phần không điều khiển không sử dụng state của React để quản lý giá trị của các trường đầu vào. Thay vào đó, giá trị của chúng được quản lý bởi DOM và truy cập qua thông số ref.
+   - Truy cập giá trị của ref: Để lấy giá trị của một trường đầu vào không điều khiển, bạn cần sử dụng thuộc tính 'ref' để tham chiếu đến phần tử DOM và truy cập giá trị của nó khi cần thiết.
+   - Đơn giản hơn, ít mã hơn: Thành phần không điều khiển thường ít phức tạp hơn vì không cần phải liên kết giá trị và sự kiện. Tuy nhiên, nó khó kiểm soát và xác thực dữ liệu hơn so với thành phần điều khiển
+   - Ví dụ:
+          ```
+          constructor(props) {
+           super(props);
+           this.input = React.createRef();
+          
+           this.handleSubmit = this.handleSubmit.bind(this);
+          }
+          
+          handleSubmit(event) {
+           alert('A name was submitted: ' + this.input.current.value);
+           event.preventDefault();
+          }
+          
+          render() {
+           return (
+             <form onSubmit={this.handleSubmit}>
+               <label>
+                 Name:
+                 <input type="text" ref={this.input} />
+               </label>
+               <input type="submit" value="Submit" />
+             </form>
+           );
+          }
+          }
+          ```
+
+  + Tóm tắt:
+    - Controller component: Quản lý giá trị thông qua state của React, dễ dàng kiểm soát và xác thực dữ liệu, những mã nguồn phức tạp hơn
+    - Uncontroller component: Quản lý giá trị thông qua DOM và sử dụng ref, ít phức tạp hơn nhưng khó kiểm soát và xác thực dữ liệu hơn.
+   
+Câu 12: Khi cần hiển thị một list component ra giao diện bạn làm như thế?
+ Để hiển thị một danh sách các thành phần (component) trong giao diện React, bạn thường sử dụng phương pháp lặp qua một mảng dữ liệu và tạo các phần tử React tương ứng. Dưới đây là các bước cơ bản để thực hiện điều này:
+  1. Chuẩn bị dữ liệu: Bạn cần có một mảng chứ dữ liệu bạn muốn hiển thị. Mỗi phần tử trong mảng này sẽ được sử dụng để tạo một thành phần React.
+  2. Sử dụng phương thức `map()`: sử dụng phương thức `map()` để lặp qua mảng dữ liệu và tạo một thành phần React cho mỗi phần tử trong mảng.
+  3. Đặt Key cho mỗi thành phần: Mỗi thành phần trong danh sách cần một thuộc tính `Key` duy nhất để React có thể theo dõi và cập nhật hiệu quả các phần tử trong danh sách.
+  4. Dưới đây là ví dụ cụ thể:
+     Giả sử bạn có một mảng các đối tượng, mỗi đối tượng đại diện cho môt người dùng và bạn muốn hiển thị danh sách các người dùng này:
+     ```
+         const users = [
+          { id: 1, name: 'Alice', age: 25 },
+          { id: 2, name: 'Bob', age: 30 },
+          { id: 3, name: 'Charlie', age: 35 }
+         ];
+         
+         function UserList() {
+          return (
+          <ul>
+           {users.map(user => (
+             <li key={user.id}>
+               {user.name} - {user.age} years old
+             </li>
+           ))}
+          </ul>
+          );
+         }
+
+     ```
+     Ví dụ với Component Con: Nếu bạn muốn hiển thị mỗi người dùng dưới dạng một thành phần con (Child component), bạn có thể làm như sau:
+      1. Tạo thành phần con: Tạo một thành phần con để hiển thị thông tin người dùng.
+      2. Truyền Props cho thành phần con: Truyền dữ liệu từ thành phần cha vào thành phần con thông qua Props
+      3. Ví dụ: 
+         ```
+          // Thành phần con để hiển thị thông tin người dùng
+          function User({ user }) {
+           return (
+           <div>
+           <h2>{user.name}</h2>
+           <p>Age: {user.age}</p>
+           </div>
+           );
+          }
+          
+          // Thành phần cha để hiển thị danh sách người dùng
+          function UserList() {
+           return (
+           <div>
+           {users.map(user => (
+           <User key={user.id} user={user} />
+           ))}
+           </div>
+           );
+          }
+         ```
+
+     Tổng hợp lại:
+      1. Tạo và chuẩn bị dữ liệu: Bạn cần một mảng dữ liệu để lặp qua.
+      2. Sử dụng `.map()` để tạo các phần tử React: Lặp qua mảng dữ liệu và tạo thành phần cho mỗi phần tử.
+      3. Cung cấp `Key` duy nhất cho mỗi phần tử : Sử dụng thuộc tính `key` để cung cấp một định dạng duy nhất cho mỗi phần tử trong danh sách.
+      4. Ví dụ hoàn chỉnh:
+         ```
+          const users = [
+           { id: 1, name: 'Alice', age: 25 },
+           { id: 2, name: 'Bob', age: 30 },
+           { id: 3, name: 'Charlie', age: 35 }
+          ];
+          
+          function User({ user }) {
+           return (
+           <div>
+           <h2>{user.name}</h2>
+           <p>Age: {user.age}</p>
+           </div>
+           );
+          }
+          
+          function UserList() {
+           return (
+           <div>
+           {users.map(user => (
+           <User key={user.id} user={user} />
+           ))}
+           </div>
+           );
+          }
+          
+          export default UserList;
+         ```
+
+
+
+Câu 13: Tại sao mỗi thành phần trong list phải có key?
+  1. Hiệu suất: `Key` giúp React cập nhật danh sách hiệu quả hơn.
+  2. Tránh vấn đề về hiển thị: `key` ngăn ngừa các lỗi về hiển thị và trạng thái
+  3. Phân biệt phần tử: `key` giúp React nhận diên và theo dõi các phần tử một cách chính xác
+     
+Câu 14: React Portal là gì? Hãy cho ví dụ ứng dụng React Portal?
+ React Portal là một tính năng trong React cho phép bạn render lại các phần tử con vào một DOM node khác nhau nằm ngoài DOM của thành phần cha. Điều nãy hữu ích khi bạn cần render các phần tử nhưng không muốn chúng bị ràng buộc vào vị trí của thành phần cha trong cây DOM
+ Portals thường được sử dụng để tạo thành phần giao diện người dùng như modal, tooltip hay các menu dropdows, những thành phần mà cần "Thoát khỏi" sự ràng buộc về bố cục và vị trí của thành phần cha hiện tại.
+
+ Ví dụ ứng dụng Portal
+
+Câu 15: React Hooks là gì? Kể tên những loại hooks mà bạn biết?
+Câu 16: Props là gì?
+Câu 17: Component con có thể thay đổi trực tiếp giá trị props của component cha không?
+Câu 18: Nếu như component cha truyền một props mà component con không sử dụng thì chuyện thì xảy ra?
          
    
